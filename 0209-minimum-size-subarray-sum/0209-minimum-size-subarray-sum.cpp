@@ -10,10 +10,10 @@ public:
 
                 sum += nums[j]; // updating our sum everytime 
                 
-                if (sum < target)
-                {
-                    j++;
-                }
+                // if (sum < target)
+                // {
+                //     j++;
+                // }
                 if (sum >= target)
                 {
 
@@ -23,8 +23,9 @@ public:
                         sum -= nums[i];
                         i++;
                     }
-                    j++;
+                    // j++;
                 }
+                j++;
             }
 
             return (minlength == INT_MAX) ? 0 : minlength;
