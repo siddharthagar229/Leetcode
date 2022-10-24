@@ -1,38 +1,42 @@
 class Solution {
 public:
-
-bool check(string s , string t ){
-    vector <int> temp(26 , 0);
-  for(int i = 0 ; i < max(s.length() , t.length()) ; i++){
-      if(i < s.length()) temp[s[i] - 'a']++;
-      if(i < t.length()) temp[t[i] - 'a']++;
-  }
-    for(int i = 0; i < 26 ; i++){
-        if(temp[i] > 1 ) return false;
-}
-
-    return true;
-    
-}
-
-int ans = 0;
-
-void soln(vector<string>& arr ,  string str , int i ){
-    
-    if(i == arr.size()){
-        int acha = str.length();
-        ans = max(ans  , acha);
-        return;
+    bool isUnique(string& str){
+        
+        vector<int> hash(26, 0);
+        
+        for(int i=0; i<str.size(); i++){  
+            hash[str[i]-'a']++; 
+            if(hash[str[i]-'a'] != 1) 
+                return false;   
+        }
+        return true;
     }
     
-    soln(arr , str , i+1);
-    if(check(str , arr[i])){
-    soln(arr , str+ arr[i] , i+1);
-}
-
-}
-int maxLength(vector<string>& arr) {
-soln(arr , "" , 0);
-return ans;
-}
+    void maxLengthString(vector<string>& arr, string curr, int i, int& ans){
+        
+        if(not isUnique(curr)){
+            return; 
+        }
+        
+        if(i == arr.size()){
+            if(isUnique(curr)){
+                ans = max(ans, (int)curr.size());
+            }
+            return;
+        }
+        
+        curr = curr + arr[i];
+        maxLengthString(arr, curr, i+1, ans);
+        for(int j=0; j<arr[i].size(); j++) curr.pop_back();
+        
+        maxLengthString(arr, curr, i+1, ans);
+    }
+    
+    
+    int maxLength(vector<string>& arr) {
+        
+        int ans = 0;
+        maxLengthString(arr, "", 0, ans);
+        return ans;
+	}
 };
