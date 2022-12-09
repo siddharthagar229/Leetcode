@@ -26,8 +26,12 @@ public:
             {
                 if(end == true)  // means after encountering a NULL we again encountered a node like ex-2.
                     return false;
+                // if(cur->left!=NULL){
                 q.push(cur->left);
+                
+                // if(cur->right!=NULL){
                 q.push(cur->right);
+                // }
             }
         }
         return true; 
