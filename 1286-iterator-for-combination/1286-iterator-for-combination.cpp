@@ -1,32 +1,28 @@
 class CombinationIterator {
 public:
-	vector<string>ans;
-	int j=0;
-	void comb(int i,string& s,int k,string& t){
-		if(i==s.size()){
-			if(t.size()==k) ans.push_back(t);
-			return;
-		}
-//      Pick
-		t.push_back(s[i]);
-		comb(i+1,s,k,t);
-		t.pop_back();
-//      NotPick
-		comb(i+1,s,k,t);
-	}
-
-	CombinationIterator(string characters, int combinationLength) {
-		sort(characters.begin(),characters.end());
-		string t="";
-		comb(0,characters,combinationLength,t);
-	}
-
-	string next() {
-		return ans[j++];
-	}
-
-	bool hasNext() {
-		if(j==ans.size())return false;
-		return true;
-	}
+    int i=0;
+    vector<string> ans;
+    void recursive(int k,vector<string> &ans,string s,int i,string main){
+        if(i>main.length()) return;
+        if(s.length()==k){
+            ans.push_back(s);
+            return;
+        }
+        recursive(k,ans,s,i+1,main);
+        s.push_back(main[i]);
+        recursive(k,ans,s,i+1,main);
+    }
+    CombinationIterator(string characters, int combinationLength) {
+        string s="";
+        recursive(combinationLength,ans,s,0,characters);
+        sort(ans.begin(),ans.end());
+    }
+    string next() {
+        return ans[i++];
+    }
+    
+    bool hasNext() {
+        if(i<ans.size()) return true;
+        else return false;
+    }
 };
