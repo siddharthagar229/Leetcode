@@ -8,7 +8,7 @@ public:
             res.push_back(ans);
             return;         
         }
-        if(k==0)return;
+        // if(k==0)return;
         if(k==0 && n!=0) return ;
          if(k!=0 && n==0) return ;
         
