@@ -16,6 +16,8 @@ public:
       signal(board,word,i,j-1,curr+1))
         
         return true;
+     
+     
     board[i][j] = temp; //backtracking condition
     return false;
 }
