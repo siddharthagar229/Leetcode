@@ -17,8 +17,9 @@ public:
         }
         else if(mp[val] > 0)   
         {
-            v.push_back(val);
             mp[val]++;
+            v.push_back(val);
+            
             return false;
         }
         return false;   
