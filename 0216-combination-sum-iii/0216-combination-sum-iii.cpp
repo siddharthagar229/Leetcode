@@ -3,7 +3,7 @@ public:
     vector<vector<int>> res;
     void solve(vector<int> &ans,int j,int k,int n)
     {
-        if(n==0 && k==0)
+        if((n==0 && k==0) )
         {
             res.push_back(ans);
             return;         
@@ -24,8 +24,7 @@ public:
         
             
         }
-        // if(n!=0)
-        //     return;
+       
     }
     vector<vector<int>> combinationSum3(int k, int n) {
        
