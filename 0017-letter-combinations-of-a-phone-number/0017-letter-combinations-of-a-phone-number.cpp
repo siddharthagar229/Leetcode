@@ -2,8 +2,7 @@ class Solution {
 public:
     void solve(vector<string> &res, vector<string> ss, string cur="", int i=0){
         if (cur.size() == ss.size()){
-            if (cur != "")
-            res.push_back(cur);
+            if (cur != "") res.push_back(cur);
             return ;
         }
         for(int j = 0 ; j<ss[i].size(); j++){
