@@ -8,6 +8,7 @@ public:
         for(int j = 0 ; j<ss[i].size(); j++){
             solve(res,ss,cur+ss[i][j],i+1);
         }
+        return ;
     }
     
     vector<string> letterCombinations(string digits) {
