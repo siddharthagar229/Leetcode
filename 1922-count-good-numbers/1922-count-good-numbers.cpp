@@ -3,6 +3,10 @@ public:
     long long powerMod(int a, long long b, int mod) {
         if(b == 0)
             return 1;
+        if(b == 1){
+                return a;
+            }
+            
         long long x = powerMod(a, b/2, mod);
         if(b % 2 == 0)
             return (x * x) % mod;
