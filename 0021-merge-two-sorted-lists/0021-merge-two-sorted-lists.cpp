@@ -34,6 +34,7 @@ public:
             current = current->next;
             l2 = l2->next;
         }
+        current->next=nullptr;
         return dummy->next;
         
         
