@@ -4,7 +4,7 @@ public:
     SmallestInfiniteSet() {
         constexpr int N = 1000;
         for (int i = 1; i <= N; ++i) {
-          s.emplace(i);
+          s.insert(i);
         }
     }
 
@@ -15,7 +15,7 @@ public:
     }
 
     void addBack(int num) {
-        s.emplace(num);
+        s.insert(num);
     }
 
 
