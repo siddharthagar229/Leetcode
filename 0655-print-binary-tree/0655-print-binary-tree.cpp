@@ -26,10 +26,12 @@ public:
     }
 public:
     vector<vector<string>> printTree(TreeNode* root) {
+        
         int height = findHeight(root);  //find MAX height of a tree
         int width = pow(2,height) - 1;
         vector<vector<string>> ans(height, vector<string> (width, ""));
-        generateTree(ans, root, 0, 0, width);
+        generateTree(ans, root, 0, 0, width-1);
         return ans;
+        
     }
 };
