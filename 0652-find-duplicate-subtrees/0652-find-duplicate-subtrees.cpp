@@ -28,7 +28,7 @@ public:
     }
     
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root) {
-        string dummy = solve(root) ;
+         solve(root) ;
         return ans ;
     }
 };
