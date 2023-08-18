@@ -1,29 +1,33 @@
 class BrowserHistory {
 public:
-    int curr=0;
-    int max_fwd=0;
-    unordered_map<int, string> umap;
-    
+    vector<string> v;
+    int i=0;
     BrowserHistory(string homepage) {
-        curr=0;
-        max_fwd=0;
-        umap[curr] = homepage;
+        v.push_back(homepage);
+        i=v.size()-1;
     }
     
     void visit(string url) {
-        curr++;
-        umap[curr]=url; 
-        max_fwd=curr;
+        v.erase(v.begin()+i+1,v.end());
+        v.push_back(url);
+        i=v.size()-1;
     }
     
     string back(int steps) {
-        int goback = min(curr, steps);
-        curr-=goback;
-        return umap[curr];
+        if(steps>i){
+            i=0;
+            return v[i];
+        } 
+        i = i - steps;
+        return v[i];
     }
     
     string forward(int steps) {
-        curr=min(max_fwd, curr+steps);
-        return umap[curr];
+        if(steps>((v.size()-1)-i)){
+            i=v.size()-1;
+            return v[i];
+        } 
+        i = i + steps;
+        return v[i];
     }
 };
