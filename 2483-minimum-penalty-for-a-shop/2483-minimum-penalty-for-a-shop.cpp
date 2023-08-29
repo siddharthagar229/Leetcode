@@ -1,7 +1,6 @@
 class Solution {
 public:
     int bestClosingTime(string a) {
-        
         int s=a.size();
 			vector<int> y,n;
 			y.push_back(0);
@@ -26,6 +25,5 @@ public:
 				}
 			}
 			return ind;
-        
     }
 };
