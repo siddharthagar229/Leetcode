@@ -1,34 +1,29 @@
 class Solution {
 public:
-    TreeNode* balanceBST(TreeNode* root) {
-        vector<int> in;
-        stack<TreeNode*> st;
-        TreeNode* temp = root;
+    void inorderTraversal(TreeNode* root,vector<int>&v) {
+        if(root==NULL)
+        return;
 
-        while(temp || !st.empty()){
-            while(temp){
-                st.push(temp);
-                temp = temp->left;
-            }
-            temp = st.top();
-            st.pop();
-            in.push_back(temp->val);
-            temp = temp->right;
-        }
-
-        return buildTree(in, 0, in.size() - 1);
+        inorderTraversal(root->left,v);
+        v.push_back(root->val);
+        inorderTraversal(root->right,v);
+        return;
     }
 
-    TreeNode* buildTree(vector<int> &in, int start, int end){
-        if(start > end){
-            return nullptr;
-        }
+    TreeNode* build(int i,int j,vector<int>&v){
+        if(i>j) return NULL;
+        int mid=(i+j)/2;
+         TreeNode*newNode=new TreeNode(v[mid]);
+         newNode->left=build(i,mid-1,v);
+         newNode->right=build(mid+1,j,v);
+         return newNode;
+    }
 
-        int mid = (start + end) / 2;
-        TreeNode* newNode = new TreeNode(in[mid]);
-        newNode->left = buildTree(in, start, mid - 1);
-        newNode->right = buildTree(in, mid + 1, end);
+    TreeNode* balanceBST(TreeNode* root) {
+        vector<int>v;
+         inorderTraversal(root,v);
+        int i=0,j=v.size()-1;
 
-        return newNode;
+        return build(0,j,v);
     }
 };
