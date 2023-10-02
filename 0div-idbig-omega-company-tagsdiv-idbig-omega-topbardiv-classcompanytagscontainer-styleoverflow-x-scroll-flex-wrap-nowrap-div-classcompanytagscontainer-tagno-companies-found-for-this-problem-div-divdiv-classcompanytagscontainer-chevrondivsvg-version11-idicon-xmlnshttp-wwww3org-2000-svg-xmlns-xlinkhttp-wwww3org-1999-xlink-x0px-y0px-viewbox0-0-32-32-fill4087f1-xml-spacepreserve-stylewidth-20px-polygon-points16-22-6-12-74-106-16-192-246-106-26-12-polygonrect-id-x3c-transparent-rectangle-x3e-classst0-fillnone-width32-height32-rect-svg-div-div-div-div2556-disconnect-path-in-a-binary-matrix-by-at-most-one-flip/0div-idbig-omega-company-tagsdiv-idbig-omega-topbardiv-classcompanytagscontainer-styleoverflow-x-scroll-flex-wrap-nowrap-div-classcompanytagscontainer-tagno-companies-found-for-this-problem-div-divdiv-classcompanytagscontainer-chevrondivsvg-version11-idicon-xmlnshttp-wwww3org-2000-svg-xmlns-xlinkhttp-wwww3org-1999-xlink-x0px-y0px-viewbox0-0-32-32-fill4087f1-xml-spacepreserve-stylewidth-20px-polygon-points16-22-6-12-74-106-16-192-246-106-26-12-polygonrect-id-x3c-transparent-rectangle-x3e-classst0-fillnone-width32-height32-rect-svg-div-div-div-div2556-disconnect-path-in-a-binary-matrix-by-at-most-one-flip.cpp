@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int cnt = 0;
+    // int cnt = 0;
     int n,m;
     
     
