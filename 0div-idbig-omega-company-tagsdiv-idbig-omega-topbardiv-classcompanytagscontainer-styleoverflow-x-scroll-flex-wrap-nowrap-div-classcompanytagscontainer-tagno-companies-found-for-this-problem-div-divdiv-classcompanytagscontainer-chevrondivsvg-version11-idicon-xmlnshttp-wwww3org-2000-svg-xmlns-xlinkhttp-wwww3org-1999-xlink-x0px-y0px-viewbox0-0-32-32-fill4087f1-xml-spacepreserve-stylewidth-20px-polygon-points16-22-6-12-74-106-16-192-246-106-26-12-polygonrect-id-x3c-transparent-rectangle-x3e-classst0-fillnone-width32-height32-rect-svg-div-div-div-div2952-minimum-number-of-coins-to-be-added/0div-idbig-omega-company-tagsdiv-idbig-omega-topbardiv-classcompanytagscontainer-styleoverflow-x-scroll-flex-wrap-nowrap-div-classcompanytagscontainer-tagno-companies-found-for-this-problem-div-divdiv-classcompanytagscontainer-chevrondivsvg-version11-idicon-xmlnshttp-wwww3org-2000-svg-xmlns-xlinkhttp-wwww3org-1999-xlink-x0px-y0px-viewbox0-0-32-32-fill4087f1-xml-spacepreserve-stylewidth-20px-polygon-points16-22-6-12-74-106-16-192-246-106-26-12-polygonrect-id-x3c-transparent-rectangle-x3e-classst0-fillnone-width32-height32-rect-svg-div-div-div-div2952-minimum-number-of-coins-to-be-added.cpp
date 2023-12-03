@@ -13,7 +13,7 @@ public:
             // the next coin's value is more than 1 greater than the maximum reachable value
             while (maxi < target && maxi + 1 < coin) {
                 // Update the maximum reachable value by adding (maxi + 1) to it
-                maxi += maxi + 1;
+                maxi = 2*maxi + 1;
                 cnt++; // Increment the count of added coins
             }
 
