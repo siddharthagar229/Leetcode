@@ -25,12 +25,6 @@ public:
             traverse(root->right,l,h);
         
         
-        // if(root->val<l){
-        //     traverse(root->right,l,h);
-        // }
-        // if(root->val>h){
-        //     traverse(root->left,l,h);
-        // }
         
         
     }
