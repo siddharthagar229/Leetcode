@@ -7,7 +7,7 @@ public:
         if (num >= low and num <= high)
             ans.push_back(num);
         // case 2: [1000, 13000] if i=10 and num is 6789, then we should stop
-        if (num > high or i>9) 
+        if (num > high or i>9 ) 
             return;
         dfs(low, high, i+1, num*10 + i);
     }
