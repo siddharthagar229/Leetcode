@@ -11,10 +11,13 @@ public:
             }
             else if(s[i]==')'&&stk.top()=='(')
                 stk.pop();
-            else if(s[i]==')'&&stk.top()==')')
-                stk.push(s[i]);
-            else if(s[i]=='(')
-                stk.push(s[i]);
+            // else if(s[i]==')'&&stk.top()==')')
+            //     stk.push(s[i]);
+            // else if(s[i]=='(')
+            //     stk.push(s[i]);
+            else{
+               stk.push(s[i]);
+            }
         }
         return stk.size();
     }
